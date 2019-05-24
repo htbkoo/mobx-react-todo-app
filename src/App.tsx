@@ -37,7 +37,6 @@ function TodoItemComponent({todo}: { todo: Todo }) {
 class TodoAddComponent extends React.Component<TodoListComponentProps> {
     @observable private task: string = '';
 
-
     handleTaskChange = ({currentTarget: {value}}: React.SyntheticEvent<HTMLInputElement>) => {
         this.task = value;
     };
@@ -47,12 +46,11 @@ class TodoAddComponent extends React.Component<TodoListComponentProps> {
         this.task = '';
     };
 
-
     render() {
         return (
             <div>
                 <label>New Task</label>
-                <input value={this.task} onChange={event => this.task = event.currentTarget.value}/>
+                <input value={this.task} onChange={this.handleTaskChange}/>
                 <button onClick={this.handleAddTodo}>Add</button>
             </div>
         )
