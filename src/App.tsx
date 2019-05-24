@@ -53,8 +53,10 @@ class TodoAddComponent extends React.Component<TodoListComponentProps> {
     };
 
     handleAddTodo = () => {
-        this.props.todoStore.addTodo(this.task);
-        this.task = '';
+        if (this.task.length > 0) {
+            this.props.todoStore.addTodo(this.task);
+            this.task = '';
+        }
     };
 
     render() {
@@ -67,6 +69,12 @@ class TodoAddComponent extends React.Component<TodoListComponentProps> {
                         aria-describedby="basic-addon2"
                         value={this.task}
                         onChange={event => this.task = event.currentTarget.value}
+
+                        onKeyUp={event => {
+                            if (this.isEnter(event.key)) {
+                                this.handleAddTodo();
+                            }
+                        }}
                     />
                     <InputGroup.Append>
                         <Button variant="outline-secondary" onClick={this.handleAddTodo}>Add</Button>
@@ -74,6 +82,10 @@ class TodoAddComponent extends React.Component<TodoListComponentProps> {
                 </InputGroup>
             </div>
         )
+    }
+
+    private isEnter(key: string): boolean {
+        return "Enter" === key;
     }
 }
 
