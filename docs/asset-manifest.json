@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/mobx-react-todo-app/static/css/main.a8f3b025.chunk.css",
+    "main.js": "/mobx-react-todo-app/static/js/main.5962b9dd.chunk.js",
+    "main.js.map": "/mobx-react-todo-app/static/js/main.5962b9dd.chunk.js.map",
+    "runtime~main.js": "/mobx-react-todo-app/static/js/runtime~main.f992d75d.js",
+    "runtime~main.js.map": "/mobx-react-todo-app/static/js/runtime~main.f992d75d.js.map",
+    "static/js/2.aa412297.chunk.js": "/mobx-react-todo-app/static/js/2.aa412297.chunk.js",
+    "static/js/2.aa412297.chunk.js.map": "/mobx-react-todo-app/static/js/2.aa412297.chunk.js.map",
+    "index.html": "/mobx-react-todo-app/index.html",
+    "precache-manifest.b3d36b79c7e8958adfa592a20d82b00c.js": "/mobx-react-todo-app/precache-manifest.b3d36b79c7e8958adfa592a20d82b00c.js",
+    "service-worker.js": "/mobx-react-todo-app/service-worker.js",
+    "static/css/main.a8f3b025.chunk.css.map": "/mobx-react-todo-app/static/css/main.a8f3b025.chunk.css.map"
+  }
+}
