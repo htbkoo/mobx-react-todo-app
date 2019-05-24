@@ -23,7 +23,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "gh-pages:clean": "rimraf docs",
-    "gh-pages:rebuild": "yarn run gh-pages:clean && yarn run build && move-cli build docs"
+    "gh-pages:rename": "move-cli build docs",
+    "gh-pages:rebuild": "yarn run gh-pages:clean && yarn run build && yarn run gh-pages:rename"
   },
   "eslintConfig": {
     "extends": "react-app"
