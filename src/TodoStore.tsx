@@ -1,4 +1,3 @@
-import React from 'react';
 import {computed, observable} from "mobx";
 
 import {Todo} from "./Todo";
