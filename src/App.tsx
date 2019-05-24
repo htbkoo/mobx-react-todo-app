@@ -5,6 +5,7 @@ import {observer} from "mobx-react";
 import './App.css';
 import {Todo} from "./Todo";
 import {TodoStore} from "./TodoStore";
+import {Button, Col, Container, FormControl, InputGroup, Row} from "react-bootstrap";
 
 interface TodoListComponentProps {
     todoStore: TodoStore
@@ -27,8 +28,13 @@ class TodoListComponent extends React.Component<TodoListComponentProps> {
 function TodoItemComponent({todo}: { todo: Todo }) {
     return (
         <div>
-            <input type="checkbox" checked={todo.finished} onChange={() => todo.finished = !todo.finished}/>
-            {todo.title}
+            <InputGroup className="mb-3">
+                <InputGroup.Prepend>
+                    <InputGroup.Checkbox aria-label="Is todo completed" checked={todo.finished}
+                                         onChange={() => todo.finished = !todo.finished}/>
+                </InputGroup.Prepend>
+                <FormControl aria-label="Todo task title" disabled value={todo.title}/>
+            </InputGroup>
         </div>
     )
 }
@@ -49,9 +55,18 @@ class TodoAddComponent extends React.Component<TodoListComponentProps> {
     render() {
         return (
             <div>
-                <label>New Task</label>
-                <input value={this.task} onChange={this.handleTaskChange}/>
-                <button onClick={this.handleAddTodo}>Add</button>
+                <InputGroup className="mb-3">
+                    <FormControl
+                        placeholder="Add new task"
+                        aria-label="Add new task"
+                        aria-describedby="basic-addon2"
+                        value={this.task}
+                        onChange={event => this.task = event.currentTarget.value}
+                    />
+                    <InputGroup.Append>
+                        <Button variant="outline-secondary" onClick={this.handleAddTodo}>Add</Button>
+                    </InputGroup.Append>
+                </InputGroup>
             </div>
         )
     }
@@ -61,12 +76,18 @@ const todoStore = new TodoStore();
 
 const App: React.FC = () => {
     return (
-        //<Provider todoStore={todoStore}>
-        //</Provider>
-        <div className="App">
-            <TodoAddComponent todoStore={todoStore}/>
-            <TodoListComponent todoStore={todoStore}/>
-        </div>
+        <Container className="App">
+            <Row>
+                <Col>
+                    <TodoAddComponent todoStore={todoStore}/>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <TodoListComponent todoStore={todoStore}/>
+                </Col>
+            </Row>
+        </Container>
     );
 };
 
