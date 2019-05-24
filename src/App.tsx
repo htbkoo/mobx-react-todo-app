@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {observable} from "mobx";
 import {observer} from "mobx-react";
 
@@ -18,25 +18,30 @@ class TodoListComponent extends React.Component<TodoListComponentProps> {
         return (
             <div>
                 {todoStore.todos.map((todo, idx) => (
-                    <TodoItemComponent todo={todo} key={`${todo.title}_${todo.id}_${idx}`}/>))}
+                    <TodoItemComponent todo={todo} key={`${todo.id}_${idx}`}/>))}
                 #Tasks: {todoStore.numRemaining} / {todoStore.size}
             </div>
         )
     }
 }
 
-function TodoItemComponent({todo}: { todo: Todo }) {
-    return (
-        <div>
-            <InputGroup className="mb-3">
-                <InputGroup.Prepend>
-                    <InputGroup.Checkbox aria-label="Is todo completed" checked={todo.finished}
-                                         onChange={() => todo.finished = !todo.finished}/>
-                </InputGroup.Prepend>
-                <FormControl aria-label="Todo task title" disabled value={todo.title}/>
-            </InputGroup>
-        </div>
-    )
+@observer
+class TodoItemComponent extends Component<{ todo: Todo }> {
+    render() {
+        let {todo} = this.props;
+        return (
+            <div>
+                <InputGroup className="mb-3">
+                    <InputGroup.Prepend>
+                        <InputGroup.Checkbox aria-label="Is todo completed" checked={todo.finished}
+                                             onChange={() => todo.finished = !todo.finished}/>
+                    </InputGroup.Prepend>
+                    <FormControl aria-label="Todo task title" disabled={todo.finished} value={todo.title}
+                                 onChange={event => todo.title = event.currentTarget.value}/>
+                </InputGroup>
+            </div>
+        )
+    }
 }
 
 @observer
