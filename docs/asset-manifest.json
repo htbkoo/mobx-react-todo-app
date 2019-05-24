@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/mobx-react-todo-app/static/css/main.a8f3b025.chunk.css",
-    "main.js": "/mobx-react-todo-app/static/js/main.d269b0d5.chunk.js",
-    "main.js.map": "/mobx-react-todo-app/static/js/main.d269b0d5.chunk.js.map",
+    "main.js": "/mobx-react-todo-app/static/js/main.444b5413.chunk.js",
+    "main.js.map": "/mobx-react-todo-app/static/js/main.444b5413.chunk.js.map",
     "runtime~main.js": "/mobx-react-todo-app/static/js/runtime~main.f992d75d.js",
     "runtime~main.js.map": "/mobx-react-todo-app/static/js/runtime~main.f992d75d.js.map",
     "static/js/2.a74b2c90.chunk.js": "/mobx-react-todo-app/static/js/2.a74b2c90.chunk.js",
     "static/js/2.a74b2c90.chunk.js.map": "/mobx-react-todo-app/static/js/2.a74b2c90.chunk.js.map",
     "index.html": "/mobx-react-todo-app/index.html",
-    "precache-manifest.f8089a888db8d93c1be5924f57a0ecb2.js": "/mobx-react-todo-app/precache-manifest.f8089a888db8d93c1be5924f57a0ecb2.js",
+    "precache-manifest.c277035aac3c91fcb127699f9aacfb44.js": "/mobx-react-todo-app/precache-manifest.c277035aac3c91fcb127699f9aacfb44.js",
     "service-worker.js": "/mobx-react-todo-app/service-worker.js",
     "static/css/main.a8f3b025.chunk.css.map": "/mobx-react-todo-app/static/css/main.a8f3b025.chunk.css.map"
   }

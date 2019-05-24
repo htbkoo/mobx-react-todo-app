@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "73ebd83b11945ce4fcaddcbe9a6137a4",
+    "revision": "9fc0771e56f6a4c11b8173389d6e11b8",
     "url": "/mobx-react-todo-app/index.html"
   },
   {
-    "revision": "ddbc07b279208dc70cfc",
+    "revision": "2065ef4cf7c210ffdd3c",
     "url": "/mobx-react-todo-app/static/css/main.a8f3b025.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mobx-react-todo-app/static/js/2.a74b2c90.chunk.js"
   },
   {
-    "revision": "ddbc07b279208dc70cfc",
-    "url": "/mobx-react-todo-app/static/js/main.d269b0d5.chunk.js"
+    "revision": "2065ef4cf7c210ffdd3c",
+    "url": "/mobx-react-todo-app/static/js/main.444b5413.chunk.js"
   },
   {
     "revision": "b2af3db6d21b4f693048",
