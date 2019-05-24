@@ -1,26 +1,75 @@
 import React from 'react';
-import logo from './logo.svg';
+import {observable} from "mobx";
+import {observer} from "mobx-react";
+
 import './App.css';
+import {Todo} from "./Todo";
+import {TodoStore} from "./TodoStore";
+
+interface TodoListComponentProps {
+    todoStore: TodoStore
+}
+
+@observer
+class TodoListComponent extends React.Component<TodoListComponentProps> {
+    render() {
+        const {todoStore} = this.props;
+        return (
+            <div>
+                {todoStore.todos.map((todo, idx) => (
+                    <TodoItemComponent todo={todo} key={`${todo.title}_${todo.id}_${idx}`}/>))}
+                #Tasks: {todoStore.numRemaining} / {todoStore.size}
+            </div>
+        )
+    }
+}
+
+function TodoItemComponent({todo}: { todo: Todo }) {
+    return (
+        <div>
+            <input type="checkbox" checked={todo.finished} onChange={() => todo.finished = !todo.finished}/>
+            {todo.title}
+        </div>
+    )
+}
+
+@observer
+class TodoAddComponent extends React.Component<TodoListComponentProps> {
+    @observable private task: string = '';
+
+
+    handleTaskChange = ({currentTarget: {value}}: React.SyntheticEvent<HTMLInputElement>) => {
+        this.task = value;
+    };
+
+    handleAddTodo = () => {
+        this.props.todoStore.addTodo(this.task);
+        this.task = '';
+    };
+
+
+    render() {
+        return (
+            <div>
+                <label>New Task</label>
+                <input value={this.task} onChange={event => this.task = event.currentTarget.value}/>
+                <button onClick={this.handleAddTodo}>Add</button>
+            </div>
+        )
+    }
+}
+
+const todoStore = new TodoStore();
 
 const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        //<Provider todoStore={todoStore}>
+        //</Provider>
+        <div className="App">
+            <TodoAddComponent todoStore={todoStore}/>
+            <TodoListComponent todoStore={todoStore}/>
+        </div>
+    );
 };
 
 export default App;
