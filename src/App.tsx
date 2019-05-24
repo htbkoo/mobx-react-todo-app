@@ -5,7 +5,7 @@ import {observer} from "mobx-react";
 import './App.css';
 import {Todo} from "./Todo";
 import {TodoStore} from "./TodoStore";
-import {Button, Col, Container, FormControl, InputGroup, Row} from "react-bootstrap";
+import {Button, Card, Col, Container, FormControl, InputGroup, Row} from "react-bootstrap";
 
 interface TodoListComponentProps {
     todoStore: TodoStore
@@ -79,12 +79,24 @@ const App: React.FC = () => {
         <Container className="App">
             <Row>
                 <Col>
-                    <TodoAddComponent todoStore={todoStore}/>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <TodoListComponent todoStore={todoStore}/>
+                    <Card>
+                        <Card.Body>
+                            <Card.Title>Simple Todo List</Card.Title>
+                            <Card.Text>
+                                Feel free to add as many items as you like! :)
+                            </Card.Text>
+                            <Row>
+                                <Col>
+                                    <TodoAddComponent todoStore={todoStore}/>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <TodoListComponent todoStore={todoStore}/>
+                                </Col>
+                            </Row>
+                        </Card.Body>
+                    </Card>
                 </Col>
             </Row>
         </Container>
